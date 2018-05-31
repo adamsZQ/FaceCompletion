@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ChatRobotPlatform:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="ChatRobot.war">
+      <element id="artifact" artifact-name="ChatRobotPlatform:war exploded" />
+    </root>
+  </artifact>
+</component>

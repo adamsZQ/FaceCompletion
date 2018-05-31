@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta charset="UTF-8">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="css/custom-fa-font-style.css"/>
+
+    <!-- Global Custom Style -->
+    <link rel="stylesheet" href="css/custom-style.css"/>
+    <link rel="stylesheet" href="css/recordDetails.css"/>
+
+    <!-- Additional Style -->
+
+    <link rel="icon" href="img/favicon.png" %}">
+    <title>报警记录详情详情</title>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<!--<nav class="navbar navbar-expand-md navbar-dark" style="background-color: black" id="navbar">-->
+    <!--<a class="navbar-brand" href="{% url 'index' %}">Face Completion</a>-->
+    <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04"-->
+            <!--aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">-->
+        <!--<span class="navbar-toggler-icon"></span>-->
+    <!--</button>-->
+
+    <!--<div class="collapse navbar-collapse" id="navbarsExample04">-->
+        <!--<ul class="navbar-nav mr-auto">-->
+            <!--&lt;!&ndash; For Right Alignment &ndash;&gt;-->
+        <!--</ul>-->
+    <!--</div>-->
+<!--</nav>-->
+
+<div class="main-container">
+
+            <div class="panel get-message">
+                <div class="panel-body overfloat-ban">
+                
+                    <div class="img-message">
+                        
+                        <p><strong>报警人：</strong>匿名</p>
+                        <p><strong>报警时间：</strong>1980-3-14</p>
+                        <p><strong>地址：</strong>黑龙江省哈尔滨市</p>
+                        <p><strong>描述：</strong>这里是描述这里是描述这里是描述这里是描述这里是描述这里是描述这里是描述这里是描述这里是描述这里是描述这里是描述这里是描述这里是描述这里是描述这里是描述这里是描述这里是描述这里是描述这里是描述这里是描述这里是描述这里是描述这里是描述这里是描述这里是描述这里是描述这里是描述这里是描述这里是描述</p>
+                    </div>
+                    <div class="img-box">
+                        <img src="img/test.jpeg" class="record-img" id="imgtoGet"/>
+                        <img src="img/test.jpeg" class="record-img" id="imgtoGet"/>
+                        <img src="img/1.jpg" class="record-img" id="imgtoGet"/>
+                        <img src="img/test.jpeg" class="record-img" id="imgtoGet"/>
+                        <img src="img/1.jpg" class="record-img" id="imgtoGet"/>
+                        <img src="img/test.jpeg" class="record-img" id="imgtoGet"/>
+                    </div>
+                </div>
+            </div>
+
+           
+
+</div>
+
+
+<!-- Footer -->
+<footer class="footer text-muted">
+    <div class="container">
+        <p class="float-right">Constructed in <a href="http://getbootstrap.com/">Bootstrap</a></p>
+        <p>© 2018 Company, Inc.</p>
+    </div>
+</footer>
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+<script src="js/holder.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="js/ie10-viewport-bug-workaround.js"></script>
+<script>
+    $("#imgUpload").change(function(e) {  
+        for (var i = 0; i < e.target.files.length; i++) {  
+            var file = e.target.files.item(i);            
+            var freader = new FileReader();  
+            freader.readAsDataURL(file);  
+            freader.onload = function(e) {  
+              var src = e.target.result;  
+              $("#imgtoUpload").attr("src",src);  
+            }  
+        }  
+    });  
+</script>
+</body>
+</html>

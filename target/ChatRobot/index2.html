@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+<script type="text/javascript" src="jquery-3.3.1.min.js" ></script>
+<script>
+    function selectUser() {
+        /*var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("test").innerHTML = xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open("POST", "user/showUser", true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send("id=1");*/
+        $.ajax({
+            url:"user/login",
+            type:"POST",
+            data:{
+                account:"1",
+                password:"123456",
+                vercode:"123",
+                verkey:"123"
+            },
+            dataType:"json",
+            success: function(data) {
+                console.log(data);
+                //$("#result").val(JSON.stringify(data));
+                $("#result").val(data['name']);
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                alert(XMLHttpRequest.status);
+                alert(XMLHttpRequest.readyState);
+                alert(textStatus);
+            }
+        })
+    }
+</script>
+<body>
+<p id="test">Hello World!</p>
+<button type="button" onclick="selectUser()">onclick test</button>
+<input type="text" id="result">
+
+</body>
+</html>

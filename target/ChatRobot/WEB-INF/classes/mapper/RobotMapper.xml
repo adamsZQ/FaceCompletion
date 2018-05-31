@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.hit.ir.dao.RobotMapper">
+    <resultMap id="BaseResultMap" type="cn.edu.hit.ir.entity.Robot">
+
+        <id column="id" javaType="java.lang.Integer" jdbcType="INTEGER" property="id"/>
+        <result column="user_id" javaType="java.lang.String" jdbcType="VARCHAR" property="userId"/>
+        <result column="name" javaType="java.lang.String" jdbcType="VARCHAR" property="name"/>
+        <result column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="sex" javaType="java.lang.String" jdbcType="VARCHAR" property="sex"/>
+        <result column="picture" javaType="java.lang.String" jdbcType="VARCHAR" property="picture"/>
+        <result column="description" javaType="java.lang.String" jdbcType="VARCHAR" property="description"/>
+        <result column="level" javaType="java.lang.Integer" jdbcType="INTEGER" property="level"/>
+        <result column="default_answer" javaType="java.lang.String" jdbcType="VARCHAR" property="defaultAnswer"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, user_id, name, create_time, sex, picture, description, level,default_answer
+    </sql>
+    <select id="select" parameterType="java.util.Map" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from robot
+        where 1 = 1
+        <if test="id != null">
+            and id = #{id,jdbcType=INTEGER}
+        </if>
+        <if test="userId != null">
+            and user_id = #{userId,jdbcType=INTEGER}
+        </if>
+        <if test="name != null">
+            and name = #{name,jdbcType=VARCHAR}
+        </if>
+        <if test="createTime != null">
+            and create_time = #{createTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="sex != null">
+            and sex = #{sex,jdbcType=VARCHAR}
+        </if>
+        <if test="picture != null">
+            and picture = #{picture,jdbcType=VARCHAR}
+        </if>
+        <if test="description != null">
+            and description = #{description,jdbcType=VARCHAR}
+        </if>
+        <if test="level != null">
+            and level = #{level,jdbcType=INTEGER}
+        </if>
+        <if test="default_answer != null">
+            and default_answer = #{defaultAnswer,jdbcType=VARCHAR}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from robot
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <select id="queryRobotsByUserId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from robot
+        where user_id = #{userId,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from robot
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="cn.edu.hit.ir.entity.Robot">
+        insert into robot (id, user_id, name,
+        create_time, sex, picture,
+        description, level,default_answer)
+        values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
+        #{createTime,jdbcType=TIMESTAMP}, #{sex,jdbcType=VARCHAR}, #{picture,jdbcType=VARCHAR},
+        #{description,jdbcType=VARCHAR}, #{level,jdbcType=INTEGER},#{defaultAnswer,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="cn.edu.hit.ir.entity.Robot">
+        insert into robot
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="sex != null">
+                sex,
+            </if>
+            <if test="picture != null">
+                picture,
+            </if>
+            <if test="description != null">
+                description,
+            </if>
+            <if test="level != null">
+                level,
+            </if>
+            <if test="default_answer != null">
+                default_answer,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="userId != null">
+                #{userId,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="sex != null">
+                #{sex,jdbcType=VARCHAR},
+            </if>
+            <if test="picture != null">
+                #{picture,jdbcType=VARCHAR},
+            </if>
+            <if test="description != null">
+                #{description,jdbcType=VARCHAR},
+            </if>
+            <if test="level != null">
+                #{level,jdbcType=INTEGER},
+            </if>
+            <if test="default_answer != null">
+                #{defaultAnswer,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="cn.edu.hit.ir.entity.Robot">
+        update robot
+        <set>
+            <if test="userId != null">
+                user_id = #{userId,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="sex != null">
+                sex = #{sex,jdbcType=VARCHAR},
+            </if>
+            <if test="picture != null">
+                picture = #{picture,jdbcType=VARCHAR},
+            </if>
+            <if test="description != null">
+                description = #{description,jdbcType=VARCHAR},
+            </if>
+            <if test="level != null">
+                level = #{level,jdbcType=INTEGER},
+            </if>
+            <if test="default_answer != null">
+                level = #{defaultAnswer,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="cn.edu.hit.ir.entity.Robot">
+        update robot
+        set user_id = #{userId,jdbcType=VARCHAR},
+        name = #{name,jdbcType=VARCHAR},
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+        sex = #{sex,jdbcType=VARCHAR},
+        picture = #{picture,jdbcType=VARCHAR},
+        description = #{description,jdbcType=VARCHAR},
+        level = #{level,jdbcType=INTEGER},
+        default_answer = #{defaultAnswer,jdbcType=VARCHAR},
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>

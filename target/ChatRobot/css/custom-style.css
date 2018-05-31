@@ -1,0 +1,251 @@
+/* Load Fonts */
+@font-face {
+    font-family: "RobotoSlab";
+    src: url('../fonts/RobotoSlab.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: "Dosis";
+    src: url('../fonts/Dosis.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: "Raleway";
+    src: url('../fonts/Raleway.ttf') format("truetype");
+}
+
+/* Navigation Bar */
+.navbar-brand {
+    font-size: 1.6em;
+    font-family: RobotoSlab, sans-serif;
+}
+
+.nav-item {
+    font-family: Dosis, sans-serif;
+}
+
+@media only screen and (max-width: 900px) and (min-width: 768px) {
+    .navbar-brand {
+        font-size: 1.1em;
+    }
+
+    .nav-link {
+        font-size: 0.9em;
+    }
+
+    .navbar-toggler-icon {
+        max-width: 0.7em;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.6em;
+    }
+
+    .nav-link {
+        font-size: 1.2em;
+    }
+
+    .navbar-toggler-icon {
+        max-width: 0.7em;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .navbar-brand {
+        font-size: 1.4em;
+    }
+
+    .navbar-toggler-icon {
+        max-width: 0.7em;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    .navbar-brand {
+        font-size: 1.2em;
+    }
+
+    .nav-link {
+        font-size: 1.1em;
+    }
+}
+
+@media only screen and (max-width: 510px) {
+    .navbar-brand {
+        font-size: 1.1em;
+    }
+
+    .nav-link {
+        font-size: 0.9em;
+    }
+
+    .navbar-toggler-icon {
+        max-width: 0.6em;
+    }
+
+    .footer {
+        font-size: 0.8em;
+    }
+}
+
+@media only screen and (max-width: 436px) {
+    .navbar-brand {
+        font-size: 0.9em;
+    }
+
+    .nav-link {
+        font-size: 0.9em;
+    }
+
+    .navbar-toggler-icon {
+        max-width: 0.6em;
+    }
+
+    .footer {
+        font-size: 0.8em;
+    }
+}
+
+@media only screen and (max-width: 380px) {
+    .navbar-brand {
+        font-size: 0.7em;
+    }
+
+    .nav-link {
+        font-size: 0.7em;
+    }
+
+    .navbar-toggler-icon {
+        max-width: 0.5em;
+    }
+
+    .footer {
+        font-size: 0.7em;
+    }
+}
+
+#user-btn {
+    cursor: pointer !important;
+}
+
+/* Main Content */
+.main-content {
+    font-family: Raleway, sans-serif;
+}
+
+/* Buttons */
+.btn {
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 322px) {
+    .btn {
+        font-size: 1em;
+    }
+}
+
+/* Footer */
+html {
+    position: relative !important;
+    min-height: 100% !important;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px !important;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    line-height: 60px; /* Vertically center the text there */
+    background-color: transparent;
+    font-family: Dosis, sans-serif;
+
+}
+
+@media only screen and (max-width: 402px) {
+    .footer {
+        font-size: 0.8em;
+    }
+}
+
+/* Tables */
+table td {
+    vertical-align: middle !important;
+    text-align: center;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+}
+
+table th {
+    vertical-align: middle !important;
+    text-align: center;
+}
+
+.table-title {
+    margin-bottom: 1em;
+}
+
+.table-title > a {
+    font-size: 0.8em;
+    font-style: italic;
+    white-space: nowrap;
+}
+
+.table-title > header {
+    display: inline-block;
+    font-size: 1.7em;
+    font-family: Dosis, sans-serif;
+}
+
+.table-select-company {
+    margin-bottom: 1.2em;
+    margin-left: 0.1em;
+}
+
+/* Form */
+.form-title {
+    font-family: Dosis, sans-serif;
+    font-size: 1.4em;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+.form-block {
+    max-width: 500px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.form-accounts {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.form-accounts input {
+    margin-bottom: 1em;
+}
+
+.form-fluid button {
+    margin: 1em auto;
+    max-width: 300px;
+}
+
+/* Apps title */
+.apps-base-title {
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+}
+
+/* Pagination */
+.pagination {
+    margin: 0 auto;
+}
