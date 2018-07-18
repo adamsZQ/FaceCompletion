@@ -4,11 +4,9 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-    <!--导入属性配置-->
-    <properties resource="generator.properties"></properties>
 
     <!--指定特定数据库的jdbc驱动jar包的位置-->
-    <classPathEntry location="${jdbc.driverLocation}"/>
+    <classPathEntry location="/Users/zchai/IdeaProjects/mysql-connector-java-5.1.37.jar"/>
 
     <context id="default" targetRuntime="MyBatis3">
 
@@ -28,10 +26,10 @@
 
         <!--jdbc的数据库连接 -->
         <jdbcConnection
-                driverClass="${jdbc.driverClass}"
-                connectionURL="${jdbc.connectionURL}"
-                userId="${jdbc.userId}"
-                password="${jdbc.password}">
+                driverClass="com.mysql.jdbc.Driver"
+                connectionURL="jdbc:mysql://127.0.0.1:3306/infosafe"
+                userId="root"
+                password="12345678">
         </jdbcConnection>
 
 
@@ -75,7 +73,7 @@
         </javaClientGenerator>
 
         <!--domainObjectName="User" -->
-        <table tableName="menu"
+        <table tableName="user_info"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">

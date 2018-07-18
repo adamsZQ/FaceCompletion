@@ -5,6 +5,9 @@ import cn.edu.hit.ir.entity.User;
 import cn.edu.hit.ir.service.IUserService;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
+import java.util.List;
+import java.util.Map;
+
 /**
  * @author 袁明琛
  * @since 1.0 2018/3/20
@@ -17,8 +20,8 @@ public class UserServiceImpl implements IUserService {
     @Resource
     private UserMapper userMapper;
 
-    public User selectUser(Integer userId) {
-        return this.userMapper.selectByPrimaryKey(userId);
+    public List<User> select(Map<String,Object> map) {
+        return this.userMapper.select(map);
     }
 
     @Override

@@ -37,9 +37,9 @@
 <!--</nav>-->
 
 <div class="main-container">
-    <form>
-        <div class="form-group">
-            <input type="file" id="imgUpload" class="input-img">
+    <form method="POST" action="uploadFile" enctype="multipart/form-data">
+        <div class="form-group" >
+            <input type="file" id="imgUpload" name="file" class="input-img">
         </div>
         <div class="img-box">
             <div class="upload-img">
@@ -52,7 +52,7 @@
             </div>
         </div>
         <div class="btn-box">
-            <button type="submit" class="btn btn-info">Submit</button>
+            <button type="submit" value="Upload">Submit</button>
         </div>
     </form>
 </div>

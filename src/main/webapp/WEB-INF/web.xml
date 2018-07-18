@@ -48,7 +48,8 @@
     </servlet-mapping>
 
   <welcome-file-list>
-    <welcome-file>login.html</welcome-file>
+    <!--<welcome-file>login.html</welcome-file>-->
+    <welcome-file>download.jsp</welcome-file>
   </welcome-file-list>
 
   <servlet>

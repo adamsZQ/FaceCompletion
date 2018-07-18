@@ -38,16 +38,16 @@
 
 <div class="main-container">
     <div class="img-deal">
-        <form class="img-select">
+        <form class="img-select" method="POST" action="uploadFile" enctype="multipart/form-data">
             <div class="form-group">
-                <input type="file" id="imgUpload" class="input-img">
+                <input type="file"  name="file" id="imgUpload" class="input-img">
             </div>
             <div class="upload-img">
                 <!-- 显示要上传的图片 -->
                 <img src="" class="img" id="imgtoUpload"/>
             </div>
             <div class="btn-box">
-                <button type="submit" class="btn btn-info">Submit</button>
+                <button type="submit" value="Upload">Submit</button>
             </div>
         </form>
         <div class="result">
