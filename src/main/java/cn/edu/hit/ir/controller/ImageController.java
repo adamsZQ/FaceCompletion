@@ -20,7 +20,7 @@ import java.io.OutputStream;
 @Controller
 public class ImageController {
 
-    @RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
+    @RequestMapping(value = "/uploadFileHandler", method = RequestMethod.POST)
     @ResponseBody
     public String uploadFileHandler(@RequestParam("file") MultipartFile file) {
         if (!file.isEmpty()) {
@@ -33,7 +33,7 @@ public class ImageController {
                 // 写文件到服务器
                 File serverFile = new File(dir.getAbsolutePath() + File.separator + file.getOriginalFilename());
                 file.transferTo(serverFile);
-                return "You successfully uploaded file=" + file.getOriginalFilename();
+                return file.getOriginalFilename();
             } catch (Exception e) {
                 return "You failed to upload " + file.getOriginalFilename() + " => " + e.getMessage();
             }
@@ -47,8 +47,9 @@ public class ImageController {
     public void downloadFile(HttpServletRequest request, HttpServletResponse response) throws IOException {
         //response.setContentType("multipart/form-data");
 
+        String img_name = request.getParameter("img_name");
         System.out.println("downloadFile被执行");
-        String imgPath = "/Users/zchai/competition/information_safety/86758C99DE30097F371B165FD4531FBE.jpg";
+        String imgPath = "/Users/zchai/competition/information_safety" + img_name;
         FileInputStream ips = new FileInputStream(new File(imgPath));
         response.setContentType("multipart/form-data");
         ServletOutputStream out = response.getOutputStream();

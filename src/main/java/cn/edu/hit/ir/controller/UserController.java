@@ -120,7 +120,7 @@ public class UserController {
         System.out.println("登录成功");
 
         baseResponse.setStatus("200");
-        baseResponse.setData(new Data("success", "no reason"));
+        baseResponse.setData(new Data("success", gson.toJson(loginUser)));
 
         response.getWriter().write(gson.toJson(baseResponse));
         response.getWriter().close();

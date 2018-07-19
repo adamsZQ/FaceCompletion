@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.hit.ir.dao.AlarmInfoMapper">
+  <resultMap id="BaseResultMap" type="cn.edu.hit.ir.entity.AlarmInfo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="longitude" jdbcType="REAL" property="longitude" />
+    <result column="latitude" jdbcType="REAL" property="latitude" />
+    <result column="img_name" jdbcType="VARCHAR" property="imgName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_id, content, tel, longitude, latitude, img_name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from alarm_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from alarm_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="java.util.Map">
+    insert into alarm_info (id, user_id, content,
+      tel, longitude, latitude,
+      img_name)
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR},
+      #{tel,jdbcType=VARCHAR}, #{longitude,jdbcType=REAL}, #{latitude,jdbcType=REAL},
+      #{imgName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="java.util.Map">
+    insert into alarm_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="tel != null">
+        tel,
+      </if>
+      <if test="longitude != null">
+        longitude,
+      </if>
+      <if test="latitude != null">
+        latitude,
+      </if>
+      <if test="imgName != null">
+        img_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null">
+        #{longitude,jdbcType=REAL},
+      </if>
+      <if test="latitude != null">
+        #{latitude,jdbcType=REAL},
+      </if>
+      <if test="imgName != null">
+        #{imgName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="java.util.Map">
+    update alarm_info
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null">
+        longitude = #{longitude,jdbcType=REAL},
+      </if>
+      <if test="latitude != null">
+        latitude = #{latitude,jdbcType=REAL},
+      </if>
+      <if test="imgName != null">
+        img_name = #{imgName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="java.util.Map">
+    update alarm_info
+    set user_id = #{userId,jdbcType=INTEGER},
+      content = #{content,jdbcType=VARCHAR},
+      tel = #{tel,jdbcType=VARCHAR},
+      longitude = #{longitude,jdbcType=REAL},
+      latitude = #{latitude,jdbcType=REAL},
+      img_name = #{imgName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

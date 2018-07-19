@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="ChatRobot@39.106.48.37">
-  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.7">
     <root id="1"/>
     <schema id="2" parent="1" name="ChatRobot">
       <Current>1</Current>
