@@ -6,6 +6,7 @@ import cn.edu.hit.ir.service.IAlarmInfoService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service("alarmService")
 public class AlarmInfoServiceImpl implements IAlarmInfoService {
@@ -41,5 +42,10 @@ public class AlarmInfoServiceImpl implements IAlarmInfoService {
     @Override
     public int updateByPrimaryKey(AlarmInfo record) {
         return alarmInfoMapper.updateByPrimaryKey(record);
+    }
+
+    @Override
+    public List<AlarmInfo> selectByUserId(int userId) {
+        return alarmInfoMapper.selectByUserId(userId);
     }
 }

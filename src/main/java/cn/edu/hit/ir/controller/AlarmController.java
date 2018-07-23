@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 
 @Controller
 @RequestMapping("/alarm")
@@ -59,7 +60,7 @@ public class AlarmController {
 
         int user_id = Integer.parseInt(request.getParameter("user_id"));
 
-        AlarmInfo alarmInfo = alarmInfoService.selectByPrimaryKey(user_id);
+        List<AlarmInfo> alarmInfo = alarmInfoService.selectByUserId(user_id);
 
         response.getWriter().write(gson.toJson(alarmInfo));
     }

@@ -2,6 +2,8 @@ package cn.edu.hit.ir.service;
 
 import cn.edu.hit.ir.entity.AlarmInfo;
 
+import java.util.List;
+
 public interface IAlarmInfoService {
     int deleteByPrimaryKey(Integer id);
 
@@ -14,4 +16,7 @@ public interface IAlarmInfoService {
     int updateByPrimaryKeySelective(AlarmInfo record);
 
     int updateByPrimaryKey(AlarmInfo record);
+
+    List<AlarmInfo> selectByUserId(int userId);
+
 }
