@@ -21,13 +21,13 @@ import java.io.OutputStream;
 @RequestMapping("/image")
 public class ImageController {
 
+    private String rootPath = "/Users/zchai/competition/information_safety/image";
     @RequestMapping(value = "/uploadFileHandler", method = RequestMethod.POST)
     @ResponseBody
     public String uploadFileHandler(@RequestParam("file") MultipartFile file) {
         if (!file.isEmpty()) {
             try {
                 // 文件存放服务端的位置
-                String rootPath = "/Users/zchai/competition/information_safety/image";
                 File dir = new File(rootPath + File.separator + "tmpFiles");
                 if (!dir.exists())
                     dir.mkdirs();
@@ -50,7 +50,8 @@ public class ImageController {
 
         String img_name = request.getParameter("img_name");
         System.out.println("downloadFile被执行");
-        String imgPath = "/Users/zchai/competition/information_safety" + img_name;
+        String imgRootPath = rootPath + "tmpFiles/";
+        String imgPath = imgRootPath + img_name;
         FileInputStream ips = new FileInputStream(new File(imgPath));
         response.setContentType("multipart/form-data");
         ServletOutputStream out = response.getOutputStream();
