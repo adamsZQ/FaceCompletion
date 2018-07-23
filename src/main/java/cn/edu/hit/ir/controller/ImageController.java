@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 @Controller
+@RequestMapping("/image")
 public class ImageController {
 
     @RequestMapping(value = "/uploadFileHandler", method = RequestMethod.POST)

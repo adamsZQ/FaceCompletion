@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 @Controller
-@RequestMapping("/alarmController")
+@RequestMapping("/alarm")
 public class AlarmController {
 
     private Gson gson = new Gson();

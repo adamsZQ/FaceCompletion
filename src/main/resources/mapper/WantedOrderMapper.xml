@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="java.util.MapMapper">
+  <resultMap id="BaseResultMap" type="cn.edu.hit.ir.entity.WantedOrder">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="info" jdbcType="VARCHAR" property="info" />
+    <result column="detail" jdbcType="VARCHAR" property="detail" />
+    <result column="datetime" jdbcType="DATE" property="datetime" />
+    <result column="number" jdbcType="VARCHAR" property="number" />
+    <result column="img_name" jdbcType="VARCHAR" property="imgName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, info, detail, datetime, number, img_name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from wanted_order
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from wanted_order
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="java.util.Map">
+    insert into wanted_order (id, info, detail, 
+      datetime, number, img_name
+      )
+    values (#{id,jdbcType=INTEGER}, #{info,jdbcType=VARCHAR}, #{detail,jdbcType=VARCHAR}, 
+      #{datetime,jdbcType=DATE}, #{number,jdbcType=VARCHAR}, #{imgName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="java.util.Map">
+    insert into wanted_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="info != null">
+        info,
+      </if>
+      <if test="detail != null">
+        detail,
+      </if>
+      <if test="datetime != null">
+        datetime,
+      </if>
+      <if test="number != null">
+        number,
+      </if>
+      <if test="imgName != null">
+        img_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="info != null">
+        #{info,jdbcType=VARCHAR},
+      </if>
+      <if test="detail != null">
+        #{detail,jdbcType=VARCHAR},
+      </if>
+      <if test="datetime != null">
+        #{datetime,jdbcType=DATE},
+      </if>
+      <if test="number != null">
+        #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="imgName != null">
+        #{imgName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="java.util.Map">
+    update wanted_order
+    <set>
+      <if test="info != null">
+        info = #{info,jdbcType=VARCHAR},
+      </if>
+      <if test="detail != null">
+        detail = #{detail,jdbcType=VARCHAR},
+      </if>
+      <if test="datetime != null">
+        datetime = #{datetime,jdbcType=DATE},
+      </if>
+      <if test="number != null">
+        number = #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="imgName != null">
+        img_name = #{imgName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="java.util.Map">
+    update wanted_order
+    set info = #{info,jdbcType=VARCHAR},
+      detail = #{detail,jdbcType=VARCHAR},
+      datetime = #{datetime,jdbcType=DATE},
+      number = #{number,jdbcType=VARCHAR},
+      img_name = #{imgName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+    <select id="selectAll">
+        select * from wanted_order
+    </select>
+</mapper>
